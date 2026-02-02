@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoltReader - Moltbook Text-to-Speech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MoltReader</h1>
+            <p class="subtitle">Text-to-Speech for Moltbook Posts</p>
+        </header>
+
+        <section class="url-section">
+            <label for="url-input">Moltbook URL</label>
+            <div class="url-input-group">
+                <input type="url" id="url-input" placeholder="https://www.moltbook.com/post/..."
+                       value="https://www.moltbook.com/post/39a5bb00-3de9-4b0a-bfa2-314dc643fdb3">
+                <button id="load-btn" class="btn btn-primary">Load</button>
+            </div>
+        </section>
+
+        <section class="controls-section">
+            <h2>Audio Controls</h2>
+            <div class="controls">
+                <button id="play-btn" class="btn" disabled>Play</button>
+                <button id="pause-btn" class="btn" disabled>Pause</button>
+                <button id="skip-btn" class="btn" disabled>Skip</button>
+                <button id="stop-btn" class="btn" disabled>Stop</button>
+            </div>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <div id="progress-text" class="progress-text">0 / 0</div>
+        </section>
+
+        <section class="status-section">
+            <h2>Now Playing</h2>
+            <div id="status" class="status">Ready. Paste a Moltbook URL and click Load.</div>
+        </section>
+
+        <section class="text-section">
+            <h2>Current Text</h2>
+            <div id="current-text" class="current-text"></div>
+        </section>
+
+        <audio id="audio-player" style="display: none;"></audio>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
